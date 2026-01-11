@@ -4,7 +4,7 @@ File Encryptor is CLI tool to **encrypt / decrypt files and folders** into/from 
 
 It is designed with safe defaults and hardened extraction to reduce common “archive-style” risks (path traversal, destination collisions, symlink tricks), while keeping usage simple.
 
----
+
 
 ## Features
 
@@ -27,7 +27,7 @@ It is designed with safe defaults and hardened extraction to reduce common “ar
   - `--follow-symlinks` allows encrypting **symlink file targets**
   - optional hardening: `--symlink-targets-within-root`
 
----
+
 
 ## Requirements
 
@@ -40,7 +40,7 @@ Install dependency:
 pip install cryptography
 ```
 
----
+
 
 ## Quick Start
 
@@ -85,7 +85,7 @@ If the container requires a password, you will be prompted.
 python3 encryptor.py --decrypt --files backup.enc --out ./restored --keyfile my.key --overwrite
 ```
 
----
+
 
 ## CLI Reference
 
@@ -100,7 +100,7 @@ python3 encryptor.py --decrypt --files backup.enc --out ./restored --keyfile my.
 ### Arguments
 
 | Flag | Encrypt | Decrypt | Description |
-|------|--------:|--------:|-------------|
+||--:|--:|-|
 | `--files` | ✅ | ✅ | Encrypt: one or more input paths. Decrypt: exactly one container path. |
 | `--out` | ✅ | ✅ | Encrypt: output container file. Decrypt: output directory. |
 | `--mode` | ✅ | ❌ | `key`, `password`, or `both` |
@@ -115,7 +115,7 @@ python3 encryptor.py --decrypt --files backup.enc --out ./restored --keyfile my.
 
 \* depends on container mode.
 
----
+
 
 ## Container Path Policy (Encryption)
 
@@ -128,7 +128,7 @@ If multiple inputs share the same basename, roots are disambiguated deterministi
 
 - `data`, `data__2`, `data__3`, ...
 
----
+
 
 ## Security Notes
 
@@ -146,7 +146,7 @@ During decryption, the tool rejects:
 - Windows-reserved device names and invalid filename patterns
 - symlink components in the output path (best-effort hardening)
 
----
+
 
 ## Examples
 
@@ -168,4 +168,4 @@ Decrypt to an existing directory (only overwrites if `--overwrite` is set):
 python3 encryptor.py --decrypt --files data.enc --out ./restored --keyfile my.key
 ```
 
----
+
